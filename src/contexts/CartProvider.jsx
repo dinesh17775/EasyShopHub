@@ -34,6 +34,11 @@ function CartProvider({ children }) {
           return CartItem;
         });
       }
+      case "DELETE_ITEM": {
+        return cart.filter((CartItem) => {
+          return CartItem.id !== action.payload;
+        });
+      }
     }
   }
   const [cart, dispatch] = useReducer(cartReducer, []);

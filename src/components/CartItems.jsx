@@ -23,6 +23,13 @@ function CartItems({ quantity, id, name, price, img }) {
       payload: itemID,
     });
   }
+  function quantityDelete(itemID) {
+    console.log("deleting....");
+    dispatch({
+      type: "DELETE_ITEM",
+      payload: itemID,
+    });
+  }
   return (
     <div>
       <p>id: {id}</p>
@@ -33,6 +40,7 @@ function CartItems({ quantity, id, name, price, img }) {
       <button onClick={() => quantityIncrease(id)}>Increase</button>
       <button onClick={() => quantityDecrease(id)}>Decrease</button>
       <button onClick={() => quantityReset(id)}>Reset</button>
+      <button onClick={() => quantityDelete(id)}>Delete</button>
     </div>
   );
 }
